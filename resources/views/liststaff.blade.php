@@ -9,7 +9,7 @@
         <h1>{{$header}}</h1>
         <div class="staff">
             @foreach($staff as $staffEl)
-                <a href="/staff/{{$staffEl['staff']}}">
+                <a href="/resumes/{{$staffEl['staff']}}">
                     {{$staffEl['staff']}}
                 </a>
             @endforeach

@@ -176,6 +176,13 @@ a {
     color: initial;
 }
 
+.resumes_header{
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .resumes{
     background: none;
     display: flex;
@@ -187,6 +194,18 @@ a {
     flex-direction: column;
 }
 
+.resume div{
+    background: none;
+}
+
+.resume_second_line{
+    display: flex;
+    flex-direction: row;
+}
+
+.resume_second_line img{
+    height: 20px; width: 20px;
+}
 .resumes a{
     width: 33%;
 }
@@ -198,7 +217,48 @@ a {
     gap: 10px;
 }
 
+.resume_content{
+    display: flex;
+    background: none;
+    justify-content: space-between;
+}
+.resume_content div{
+    background: none;
+}
+.resume_btns{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
+.errors{
+    color: red;
+    background: none;
+    border: 1px dotted red;
+}
+
+.add_btn{
+    padding: 10px;
+    border-color: hsl(100, 50%, 50%);
+    color: white;
+    background-color: hsl(100, 50%, 50%);
+}
+.update_btn{
+    padding: 10px;
+    border-color: hsl(150, 50%, 50%);
+    color: white;
+    background-color: hsl(150, 50%, 50%);
+}
+.remove_btn{
+    padding: 10px;
+    border-color: hsl(0, 50%, 50%);
+    color: white;
+    background-color: hsl(0, 50%, 50%);
+
+}
+form div{
+    background: none;
+}
 @media (min-width: 700px) {
 
 }

@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\FirmController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\PersonController;
+use App\Http\Controllers\VacancyController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +23,19 @@ Route::get('/', function () {
     return redirect('/vacancies');
 });
 
-Route::get('/resumes', [IndexController::class, 'GetResumes']);
-Route::get('/resume/{id}', [IndexController::class, 'GetResume']);
+Route::get('/resumes', [PersonController::class, 'GetResumes']);
+Route::get('/resume/add', [PersonController::class, 'AddResumeForm']);
+Route::post('/resume/add', [PersonController::class, 'AddResume']);
+Route::get('/resume/{id}', [PersonController::class, 'GetResume']);
+Route::delete('/resume/{person}', [PersonController::class, 'DeleteResume'])->name('DeleteResume');
+Route::put('/resume/{person}', [PersonController::class, 'UpdateResume'])->name('UpdateResume');
+Route::get('/resume/update/{id}', [PersonController::class, 'UpdateResumeForm'])->name('UpdateResumeForm');
+
+
+
+
+Route::get('/resumes/{staffname}', [PersonController::class, 'GetStaffResumes']);
+
 
 Route::get('/task2', [IndexController::class, 'Task2']);
 Route::get('/task2/peoplestage/', [IndexController::class, 'GetPeopleWithStage']);
@@ -27,10 +43,9 @@ Route::get('/task2/programmers/', [IndexController::class, 'GetProgrammers']);
 Route::get('/task2/count/', [IndexController::class, 'GetResumeCount']);
 Route::get('/task2/resumestaff/', [IndexController::class, 'GetResumeStaff']);
 
-Route::get('/vacancies', [IndexController::class, 'GetVacancies']);
+Route::get('/vacancies', [VacancyController::class, 'GetVacancies']);
 
-Route::get('/staff/', [IndexController::class, 'GetStaff']);
-Route::get('/staff/{staffname}', [IndexController::class, 'GetStaffResumes']);
+Route::get('/staff/', [StaffController::class, 'GetStaff']);
 
 
 
