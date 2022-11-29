@@ -14,7 +14,7 @@
             </div>
         @endif
         <form method="POST" action="{{ route('UpdateResume',['person'=>$resume->id]) }}">
-            <input type=hidden name="_method" value="PUT">
+            @method('PUT')
             <div>ФИО <input name="FIO" value="{{$resume->FIO}}"></div>
             <div>Телефон <input name="phone" value="{{$resume->phone}}"></div>
             <div>Фото <input name="image" value="{{$resume->image}}"></div>

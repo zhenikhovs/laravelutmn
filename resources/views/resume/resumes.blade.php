@@ -14,34 +14,41 @@
         </a>
     </div>
     <div class="resumes">
-        @foreach($resumes as $resume)
-            <a href="/resume/{{ $resume['id'] }}">
+        @forelse($resumes as $resume)
+
                 <div class="resume">
-                    <div class="pinline second">
-                        {{ $resume['FIO'] }}<br>
-                        Телефон: {{ $resume['phone'] }}
-                    </div>
+                    <a href="/resume/{{ $resume['id'] }}">
+                        <div class="pinline second">
+                            {{ $resume['FIO'] }}<br>
+                            Телефон: {{ $resume['phone'] }}
+                        </div>
+                    </a>
+
                     <div class="resume_second_line">
                         <div class="pinline third">
                             Стаж:
                             {{ $resume['stage'] }}
                         </div>
                         <div class="actions">
-{{--                            <a href="/lala">--}}
-{{--                                <img src="{{ asset('img/upd.png')}}" alt="">--}}
-{{--                            </a>--}}
-{{--                            <a href="/lslslsa">--}}
-{{--                                <img src="{{ asset('img/trash.png')}}" alt="">--}}
-{{--                            </a>--}}
+                            <a href="{{ route('UpdateResumeForm',['id'=>$resume['id']]) }}">
+                                <img src="{{ asset('img/upd.png')}}" alt="">
+                            </a>
+                            <form action=
+                                      "{{ route('DeleteResume',['person'=>$resume['id']]) }}" method="POST">
+                                @method('DELETE')
+                                <button class="trash_btn" type="submit"><img src="{{ asset('img/trash.png')}}" alt=""></button>
+                                {{ csrf_field() }}
+                            </form>
                         </div>
 
                     </div>
 
                 </div>
-            </a>
+        @empty
+            Таких индивидуумов нет :( <br>
+            Очень грустно даже плакать хочется
 
-
-        @endforeach
+        @endforelse
     </div>
 
 </div>

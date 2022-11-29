@@ -187,11 +187,15 @@ a {
     background: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+
 }
 .resume{
     background: none;
     display: flex;
     flex-direction: column;
+    width: 30%;
+
 }
 
 .resume div{
@@ -205,9 +209,6 @@ a {
 
 .resume_second_line img{
     height: 20px; width: 20px;
-}
-.resumes a{
-    width: 33%;
 }
 
 .staff {
@@ -256,6 +257,20 @@ a {
     background-color: hsl(0, 50%, 50%);
 
 }
+.actions{
+    display: flex;
+}
+.trash_btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.staff a:hover{
+    text-decoration: underline;
+    text-underline: #1a202c;
+}
+
 form div{
     background: none;
 }

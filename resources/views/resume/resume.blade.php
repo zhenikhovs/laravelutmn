@@ -29,7 +29,7 @@
 
             <form action=
                       "{{ route('DeleteResume',['person'=>$resume->id]) }}" method="POST">
-                <input type=hidden name="_method" value="DELETE">
+                @method('DELETE')
                 <button class="remove_btn" type="submit">Удалить резюме</button>
                 {{ csrf_field() }}
             </form>

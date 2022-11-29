@@ -63,14 +63,15 @@ class PersonController extends Controller
             ]);
     }
 
-    public function AddResume(Request $request){
-        $this->validate($request,
+    public function AddResume(){
+        $requestData = request()->validate(
             ['FIO' => 'required|max:255',
-            'phone' => 'required',
-            'stage' => 'required',
-            'staff_id' => 'required',
+                'phone' => 'required|integer',
+                'stage' => 'required',
+                'image' => 'required',
+                'staff_id' => 'required',
             ]);
-        $requestData=$request->all();
+
         $resume=new Person($requestData);
 //        $resume->fill($data); //dump($resume); // что передано в таблицу
         $resume->save();
@@ -99,15 +100,8 @@ class PersonController extends Controller
                 'stage' => 'required',
                 'staff_id' => 'required',
             ]);
-
         $requestData = $request->all();
-
-        $person->FIO = $requestData['FIO'];
-        $person->phone = $requestData['phone'];
-        $person->image = $requestData['image'];
-        $person->staff_id = $requestData['staff_id'];
-        $person->stage = $requestData['stage'];
-
+        $person->update($requestData);
         $person->save();
         return redirect('/resumes');
     }
